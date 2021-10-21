@@ -5,3 +5,11 @@
 ***Express
 ***Node
 ***React
+
+
+**Library
+pg
+express
+mongoose
+nodemon
+doten
