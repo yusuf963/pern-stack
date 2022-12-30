@@ -5,17 +5,12 @@ import router from './views/routes.js';
 import dotenv from 'dotenv';
 dotenv.config();
 
-// sqlClient.query("INSERT INTO todo (description, completed, creaeted_at) values( 'Play Tennis', false, Now())", function (err, result) {
-//   if (err) {
-//     return console.error('error running query', err);
-//   }
-//   console.log(result.rows[0]);
-// })
+// make use of sequelize for building sql schemas @  https://sequelize.org/
 
 const app = express();
 app.use(cors())
-app.use(bodyParser.json());
-app.use(express.json());
+// app.use(bodyParser.json());
+app.use(express.json()); // for parsing application/json instead of bodyParser
 app.use(express.urlencoded({ extended: false }));
 app.use(router)
 

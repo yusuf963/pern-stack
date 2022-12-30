@@ -53,6 +53,7 @@ const getOneTodo = (req, res, next) => {
 
 const createTodo = (req, res, next) => {
     const { description, completed } = req.body;
+    console.log(req.body)
 
     sqlClient.query('INSERT INTO "public"."todo" (description, completed, creaeted_at) values($1, $2, now())',
         [description, completed], function (err, result) {
@@ -116,4 +117,4 @@ const deleteTodo = (req, res, next) => {
 }
 
 
-export { getAllTodos, getOneTodo, createTodo, updateTodo, deleteTodo }
+export { getTime, getAllTodos, getOneTodo, createTodo, updateTodo, deleteTodo }
