@@ -15,6 +15,7 @@ import {
     useSyncExternalStore,
     useTransition,
 } from 'react';
+import { LinearProgress } from '@mui/material';
 import { useQuery } from 'react-query';
 import { Itodo, Ifetch } from './type';
 import Todo from './components/TodoItem';
@@ -25,10 +26,10 @@ const fetchDAta = async (): Promise<Ifetch> => {
 };
 
 const App: React.FC = (): JSX.Element => {
-    const { data, status, isLoading, isError } = useQuery<Ifetch, Error>(['todos', 1], fetchDAta);
+    const { data, status, isLoading, error } = useQuery<Ifetch, Error>(['todos', 1], fetchDAta);
     console.log(data);
-    if (isLoading) return <div>Loading...</div>;
-    if (status === 'error') return <div>Error: {isError}</div>;
+    if (isLoading) return <div><LinearProgress/></div>;
+    if (status === 'error') return <div>Error: {error.message}</div>;
 
     const todoItem = data?.result.map((item: Itodo) => {
         return Todo(item);
