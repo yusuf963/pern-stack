@@ -55,7 +55,7 @@ const createTodo = (req, res, next) => {
     const { description, completed } = req.body;
     console.log(req.body)
 
-    sqlClient.query('INSERT INTO "public"."todo" (description, completed, creaeted_at) values($1, $2, now())',
+    sqlClient.query('INSERT INTO "public"."todo" (description, completed, 	created_at) values($1, $2, now())',
         [description, completed], function (err, result) {
             if (err) {
                 return console.error('error running query', err);

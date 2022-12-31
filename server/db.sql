@@ -19,7 +19,7 @@ CREATE TABLE todo(
     creaeted_at timestamp
 );
 --!insert data into table
-INSERT INTO todo (description, completed, creaeted_at) values( 'Clean my laptop screen', false, Now());
+-- INSERT INTO todo (description, completed, 	created_at) values( 'Clean my laptop screen', false, Now());
 --!select data from table
 -- SELECT * FROM name;
 --!update data in table
