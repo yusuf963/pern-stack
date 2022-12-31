@@ -1,6 +1,7 @@
 import Button from '@mui/material/Button';
 import Fab from '@mui/material/Fab';
 import AddIcon from '@mui/icons-material/Add';
+import EditIcon from '@mui/icons-material/Edit';
 
 import { Itodo } from '../type';
 
@@ -22,7 +23,10 @@ const Todo = (item: Itodo) => {
                 Delete
             </Button>
             <Fab color="primary" aria-label="add">
-                <AddIcon />
+                -
+            </Fab>
+            <Fab onClick={()=> console.log('hi')} color="secondary" aria-label="edit">
+                <EditIcon />
             </Fab>
         </div>
     );
