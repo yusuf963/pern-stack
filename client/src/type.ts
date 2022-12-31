@@ -4,13 +4,11 @@ export interface Itodo {
     completed: boolean;
     created_at: string | null;
 
-
 }
 
 export interface Ifetch {
     result: Itodo[];
     message: string;
     success: boolean;
-
 
 }

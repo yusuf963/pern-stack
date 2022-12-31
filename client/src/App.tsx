@@ -1,25 +1,20 @@
 import { useQuery } from 'react-query';
 import { Itodo, Ifetch } from './type';
+import Todo from './components/TodoItem';
+
+
 
 const App: React.FC = (): JSX.Element => {
-    const { data, status, isLoading, isError } = useQuery<Ifetch, Error>('todos', async () => {
+    const { data, status, isLoading, isError } = useQuery<Ifetch, Error>(['todos',1], async () => {
         return await fetch('http://localhost:5000/').then((res) => res.json());
     });
 
     if (isLoading) return <div>Loading...</div>;
     if (status === 'error') return <div>Error: {isError}</div>;
 
-    const handleBoolean = (value: boolean) => {
-        if (value) return 'completed';
-        return 'not completed';
-    };
     const todoItem = data?.result.map((item: Itodo) => {
         return (
-            <div key={item.id}>
-                <p>{item.description}</p>
-                <p>{handleBoolean(item.completed)}</p>
-                <p>{item.created_at}</p>
-            </div>
+            Todo(item)
         );
     });
 
